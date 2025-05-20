@@ -1,0 +1,14 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  mongo: # This is the name of the service (can be anything)
+    image: mongo:latest  # Use the official MongoDB Docker image
+    container_name: postmypet-mongo # Optional, names the container for clarity
+    ports:
+      - "27017:27017"  # Maps container port 27017 to your machine's 27017
+    volumes:
+      - mongo-data:/data/db # Persists data so you don’t lose it when restarting
+
+volumes:
+  mongo-data:
